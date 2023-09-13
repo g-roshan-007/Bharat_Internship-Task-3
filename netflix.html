@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix-like Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Poppins:wght@600&family=Raleway:wght@400;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #141414;
+            color: #fff;
+            font-family: 'Josefin Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #230000;
+            height: 50px;
+        }
+
+        .logo img {
+            width: 100px;
+        }
+
+        .nav-bar {
+            flex-grow: 1;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            bottom: -4px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .nav-links a:hover {
+            color: #e50914;
+        }
+
+        .nav-links a:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .profile-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .profile-dropdown {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: #000;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            min-width: 200px;
+            z-index: 1;
+        }
+
+        .profile-details img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .profile-details h3,
+        .profile-details p {
+            color: #fff;
+            margin: 10px 0;
+        }
+
+        .profile-links {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .profile-links li {
+            margin: 10px 0;
+        }
+
+        .profile-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .profile-container:hover .profile-dropdown {
+            display: block;
+        }
+
+        .category {
+            margin-bottom: 30px;
+
+        }
+
+        .category h1 {
+            font-size: 2 rem;
+            margin-bottom: 5px;
+            transition: color 0.3s;
+            cursor: pointer;
+            padding-left: 30px;
+        }
+
+        .category h1:hover {
+            color: #e50914;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 30px;
+            padding: 30px;
+        }
+
+        .movie-card {
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .movie-card img {
+            width: 100%;
+            border-radius: 8px;
+            height: 430px;
+        }
+
+        .movie-card h2 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Movie <span>Plex</span></h1>
+        </div>
+        <nav class="nav-bar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">TV Shows</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">My List</a></li>
+            </ul>
+        </nav>
+        <div class="profile-container">
+            <div class="profile-icon"></div>
+            <div class="profile-dropdown">
+                <div class="profile-details">
+
+                    <h3>User Name</h3>
+                    <p>user@example.com</p>
+                </div>
+                <ul class="profile-links">
+                    <li><a href="#">Account Details</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Sign Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="category">
+            <h1>Best of Hollywood</h1>
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <img src="honest-movie-posters-7.jpg" alt="Movie 1">
+                    <h2>Black Mirror</h2>
+                </div>
+                <div class="movie-card">
+                    <img src="fee7eab62f787cf7bbd3aa3cce3ac833.jpg" alt="Movie 2">
+                    <h2>Joker</h2>
+                </div>
+                <div class="movie-card">
+                    <img src="Dora_The_Explorer_And_The_Lost_City_Of_Gold_-_Hollywood_English_Movie_Poster_1_f5c6fe92-9844-4afb-b00e-d429a39a9837.jpg"
+                        alt="Movie 3">
+                    <h2>Dora And The Lost City Of Gold</h2>
+                </div>
+                <div class="movie-card">
+                    <img src="black-panther-web.jpg" alt="Movie 2">
+                    <h2>Black Panther</h2>
+                </div>
+            </div>
+        </section>
+        <section class="category">
+            <h1>Best of Bollywood</h1>
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <img src="airlift-movie-poster-4.jpg" alt="Movie 1">
+                    <h2>Airlift</h2>
+                </div>
+                <div class="movie-card">
+                    <img src="desktop-wallpaper-prithviraj-to-release-on-10-june-2022-check-the-brand-new-movie-posters-bollywood-2022-movie.jpg"
+                        alt="Movie 2">
+                    <h2>Prudhviraj</h2>
+                </div>
+                <div class="movie-card">
+                    <img src="MV5BNTlmNDMzOWQtYzg4Ny00OWQ0LWFhN2MtNmQ2MDczZGZhNTU5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg"
+                        alt="Movie 3">
+                    <h2>War</h2>
+                </div>
+                <div class="movie-card">
+                    <img src="pathaan21669878743.jpg" alt="Movie 2">
+                    <h2>Pathaan</h2>
+                </div>
+            </div>
+        </section>
+
+        <section class="category">
+            <h1>Best of Tollywood</h1>
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <img src="Pushpa-Movie-Poster-1.jpg" alt="Movie 1">
+                    <h2>Pushpa</h2>
+                </div>
+                <div class="movie-card">
+                    <img src="Radhe-Shyam-Telugu-Movie-Poster-1-scaled.jpg" alt="Movie 2">
+                    <h2>Radhe Shyam</h2>
+                </div>
+                <div class="movie-card">
+                    <img src="Kushi-poster.jpg" alt="Movie 3">
+                    <h2>Kushi</h2>
+                </div>
+                <div class="movie-card">
+                    <img src="ee774576e8372d90f998ada26e5ea8e3.jpg" alt="Movie 2">
+                    <h2>KGF Chapter-2</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add more categories as needed -->
+    </main>
+</body>
+
+</html>
